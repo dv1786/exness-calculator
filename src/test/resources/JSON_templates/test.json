@@ -1,0 +1,30 @@
+{
+  "commission": null,
+  "conversion_pairs": {
+    "AUDUSD": 0.70708,
+    "USDCAD": 1.29904
+  },
+  "long": "0.04",
+  "lots_mln_usd": "14.14",
+  "margin": "35.35",
+  "margin_formula1": "Лот x размер контракта / размер плеча",
+  "margin_formula2": "0.10 x 100000.0 / 200 = 50.000 AUD",
+  "no_quotes": false,
+  "profit": "0.77",
+  "profit_formula1": "Размер пункта x размер контракта x лот",
+  "profit_formula2": "0.00010 x 100000.0 x 0.10 = 1.00 CAD",
+  "short": "-0.13",
+  "swap_char": "pt.",
+  "swap_enable": true,
+  "swap_formula1": "Лот x размер контракта x размер свопа x размер пункта",
+  "swap_formula2": "0.10 x 100000.0 x 0.04700 x 0.00010 = 0.05 CAD",
+  "swap_formula3": "0.10 x 100000.0 x -0.16300 x 0.00010 = -0.16 CAD",
+  "swap_long": "0.05",
+  "swap_short": "-0.16",
+  "tick_size": 0,
+  "user_currency": "USD",
+  "volume_formula1": "Лот x размер контракта",
+  "volume_formula2": "0.10 x 100000 = 10000.00 AUD",
+  "volume_mln_usd": "0.0071",
+  "form_type": "mini"
+}
