@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d7def81-8511-4f1d-b4ca-a5d39614609c" name="Default" comment="added class Te">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/JSON_templates/test.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/exness/App.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Utils/CalculatorProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/exness/AppTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/test.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/exness/RandomCookieGenerate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/JSON_templates/test.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/exness/TestAccountTypeMini.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -46,8 +46,8 @@
       <file leaf-file-name="TestAccountTypeMini.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state relative-caret-position="119">
+              <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,6 +73,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="RandomCookieGenerate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/exness/RandomCookieGenerate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/exness/App.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/resources/test.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -106,11 +115,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/resources/test.properties" />
         <option value="$PROJECT_DIR$/src/test/java/Utils/CalculatorProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/exness/App.java" />
         <option value="$PROJECT_DIR$/src/test/resources/JSON_templates/test.json" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/resources/test.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/Utils/RandomCookieGenerate.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java" />
       </list>
     </option>
@@ -138,8 +148,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,11 +236,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.exness" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -243,7 +258,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestAccountTypeMini.checkCurrencyMarginCalculation">
+  <component name="RunManager" selected="JUnit.TestAccountTypeMini">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.exness.App" />
       <module name="exness-calculator" />
@@ -257,6 +272,29 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="TestAccountTypeMini" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="exness-calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.exness.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.exness" />
+      <option name="MAIN_CLASS_NAME" value="com.exness.TestAccountTypeMini" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exness-calculator" />
@@ -323,9 +361,11 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="JUnit.TestAccountTypeMini.checkCurrencyMarginCalculation" />
+      <item itemvalue="JUnit.TestAccountTypeMini" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestAccountTypeMini" />
         <item itemvalue="JUnit.TestAccountTypeMini.checkCurrencyMarginCalculation" />
         <item itemvalue="Application.App" />
       </list>
@@ -363,38 +403,45 @@
       <option name="project" value="LOCAL" />
       <updated>1540310461455</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added implement first test and specRequestBuilder">
+      <created>1540402683431</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540402683431</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 22h 28m 19s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 12h 47m 34s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 22h 38m 18s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 12h 49m 46s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 22h 39m 37s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 12h 50m 04s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 22h 47m 25s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 12h 50m 26s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 22h 58m 18s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 12h 51m 03s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 22h 58m 48s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 12h 56m 43s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 23h 05m 48s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 12h 57m 00s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 23h 06m 14s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 13h 01m 34s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 23h 23m 45s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 13h 06m 52s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.24 at 23h 29m 03s.xml">
+    <history-entry file="TestAccountTypeMini_checkCurrencyMarginCalculation - 2018.10.27 at 13h 07m 18s.xml">
       <configuration name="TestAccountTypeMini.checkCurrencyMarginCalculation" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -424,7 +471,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4978678" weight="0.32963374" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.32963374" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49840087" weight="0.32963374" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17963752" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18283582" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -441,9 +488,135 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added template" />
     <MESSAGE value="added properties and property class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added properties and property class" />
+    <MESSAGE value="added implement first test and specRequestBuilder" />
+    <option name="LAST_COMMIT_MESSAGE" value="added implement first test and specRequestBuilder" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java</url>
+          <line>31</line>
+          <properties class="com.exness.TestAccountTypeMini" method="checkCurrencyMarginCalculation">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/exness/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/JSON_templates/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Utils/CalculatorProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/exness/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/exness/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/JSON_templates/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Utils/CalculatorProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/exness/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -630,20 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/test.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Utils/CalculatorProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/exness/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -661,6 +820,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/JSON_templates/test.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -668,17 +834,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/test.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        <state relative-caret-position="17">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/exness/RandomCookieGenerate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Utils/CalculatorProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/exness/TestAccountTypeMini.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        <state relative-caret-position="119">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
