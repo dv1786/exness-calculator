@@ -1,6 +1,5 @@
 package com.exness;
 
-import Utils.CalculatorProperties;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -11,8 +10,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasKey;
 
-
-public class TestAccountTypeMini {
+public class TestAccountTypeECN {
 
     @Before
     public void setupRestAssured() {
@@ -22,156 +20,60 @@ public class TestAccountTypeMini {
                 .setBasePath("/api/calculator/calculate/")
                 .setAccept("application/json, text/javascript, */*; q=0.01")
                 .setContentType(ContentType.JSON)
-               // .addCookie(RandomCookieGenerate.cookie)
-              //  .log(LogDetail.ALL)
+                // .addCookie(RandomCookieGenerate.cookie)
+                //  .log(LogDetail.ALL)
                 .build();
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
     @Test
-    public void checkAUDCADmCalculation(){
+    public void checkAUDCADeCalculation(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.01")
                 .queryParam("leverage","200")
-                .queryParam("user_currency","AUD")
+                .queryParam("user_currency","USD")
                 .when().get()
                 .then()
                 .statusCode(200)
                 .body("commission", equalTo(null))
                 .body("$", hasKey("margin"))
                 .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("AUD"))
+                .body("conversion_pairs.AUDUSD", Matchers.is(Float.class))
+                .body("conversion_pairs.USDCAD", Matchers.is(Float.class))
+                .body("user_currency", equalTo("USD"))
                 .body("profit_formula2", equalTo("0.00010 x 100000.0 x 0.01 = 0.10 CAD"))
-                .body("form_type", equalTo("mini"))
+                .body("form_type", equalTo("ECN"))
                 .extract().response()
                 .prettyPrint();
 
     }
 
     @Test
-    public void checkNOKJPYmCalculation(){
+    public void checkNZDJPYeCalculation(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","NOKJPYm")
-                .queryParam("lot","100000")
+                .queryParam("symbol","NZDJPYe")
+                .queryParam("lot","0.01")
                 .queryParam("leverage","200")
-                .queryParam("user_currency","JPY")
+                .queryParam("user_currency","AZN")
                 .when().get()
                 .then()
                 .statusCode(200)
                 .body("commission", equalTo(null))
                 .body("$", hasKey("margin"))
                 .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("JPY"))
-                .body("profit_formula2", equalTo("0.01000 x 100000.0 x 100000.00 = 100000000.00 JPY"))
-                .body("form_type", equalTo("mini"))
-                .extract().response()
-                .prettyPrint();
-
-    }
-
-    @Test
-    public void checkBTCUSDmCalculation(){
-        RestAssured.given()
-                .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
-                .queryParam("instrument","Forex")
-                .queryParam("symbol","BTCUSDm")
-                .queryParam("lot","0.1")
-                .queryParam("leverage","2000")
-                .queryParam("user_currency","USD")
-                .when().get()
-                .then()
-                .statusCode(200)
-                .body("commission", equalTo(null))
-                .body("$", hasKey("margin"))
-                .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("USD"))
-                .body("profit_formula2", equalTo("0.10000 x 1.0 x 0.10 = 0.01 USD"))
-                .body("form_type", equalTo("mini"))
-                .extract().response()
-                .prettyPrint();
-
-    }
-
-    @Test
-    public void checkXAGUSDmCalculation(){
-        RestAssured.given()
-                .header("cookie",RandomCookieGenerate.cookie)
-               // .queryParam("form_type",CalculatorProperties.getProperty("com.exness.account"))
-                .queryParam("form_type","mini")
-                .queryParam("instrument","Forex")
-                .queryParam("symbol","XAGUSDm")
-                .queryParam("lot","2")
-                .queryParam("leverage","2")
-                .queryParam("user_currency","USD")
-                .when().get()
-                .then()
-                .statusCode(200)
-                .body("commission", equalTo(null))
-                .body("$", hasKey("margin"))
-                .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("USD"))
-                .body("profit_formula2", equalTo("0.01000 x 5000.0 x 2.00 = 100.00 USD"))
-                .body("form_type", equalTo("mini"))
-                .extract().response()
-                .prettyPrint();
-
-    }
-
-    @Test
-    public void checkXAUEURmCalculation(){
-        RestAssured.given()
-                .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
-                .queryParam("instrument","Forex")
-                .queryParam("symbol","XAUEURm")
-                .queryParam("lot","0.1")
-                .queryParam("leverage","2")
-                .queryParam("user_currency","EUR")
-                .when().get()
-                .then()
-                .statusCode(200)
-                .body("commission", equalTo(null))
-                .body("$", hasKey("margin"))
-                .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("EUR"))
-                .body("profit_formula2", equalTo("0.01000 x 100.0 x 0.10 = 0.10 EUR"))
-                .body("form_type", equalTo("mini"))
-                .extract().response()
-                .prettyPrint();
-
-    }
-
-    @Test
-    public void checkXAUEURmCalcAccountInUSD(){
-        RestAssured.given()
-                .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
-                .queryParam("instrument","Forex")
-                .queryParam("symbol","XAUEURm")
-                .queryParam("lot","0.1")
-                .queryParam("leverage","100")
-                .queryParam("user_currency","USD")
-                .when().get()
-                .then()
-                .statusCode(200)
-                .body("commission", equalTo(null))
-                .body("$", hasKey("margin"))
-                .body("$", hasKey("profit"))
-                .body("$", hasKey("conversion_pairs"))
-                .body("user_currency", equalTo("USD"))
-                .body("conversion_pairs.XAUUSD", Matchers.is(Float.class))
-                .body("conversion_pairs.EURUSD", Matchers.is(Float.class))
-                //.body("conversion_pairs.XAUUSD", Matchers.equalTo(1233.635f))
-                .body("profit_formula2", equalTo("0.01000 x 100.0 x 0.10 = 0.10 EUR"))
-                .body("form_type", equalTo("mini"))
+                .body("conversion_pairs.NZDUSD", Matchers.is(Float.class))
+                .body("conversion_pairs.USDJPY", Matchers.is(Float.class))
+                .body("conversion_pairs.USDAZN", Matchers.is(Float.class))
+                .body("user_currency", equalTo("AZN"))
+                .body("profit_formula2", equalTo("0.01000 x 100000.0 x 0.01 = 10.00 JPY"))
+                .body("form_type", equalTo("ECN"))
                 .extract().response()
                 .prettyPrint();
 
@@ -181,11 +83,11 @@ public class TestAccountTypeMini {
     public void lotEnotationValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","10e6")
-                .queryParam("leverage","200")
+                .queryParam("leverage","2")
                 .queryParam("user_currency","AUD")
                 .when().get()
                 .then()
@@ -195,7 +97,7 @@ public class TestAccountTypeMini {
                 .body("$", hasKey("profit"))
                 .body("user_currency", equalTo("AUD"))
                 .body("profit_formula2", equalTo("0.00010 x 100000.0 x 10000000.00 = 100000000.00 CAD"))
-                .body("form_type", equalTo("mini"))
+                .body("form_type", equalTo("ECN"))
                 .extract().response()
                 .prettyPrint();
     }
@@ -204,9 +106,9 @@ public class TestAccountTypeMini {
     public void lotLargerThanBorder(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","3000000")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","AUD")
@@ -218,7 +120,7 @@ public class TestAccountTypeMini {
                 .body("$", hasKey("profit"))
                 .body("user_currency", equalTo("AUD"))
                 .body("profit_formula2", equalTo("0.00010 x 100000.0 x 3000000.00 = 30000000.00 CAD"))
-                .body("form_type", equalTo("mini"))
+                .body("form_type", equalTo("ECN"))
                 .extract().response()
                 .prettyPrint();
 
@@ -230,9 +132,9 @@ public class TestAccountTypeMini {
     public void leverageLargerThanBorder(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.1")
                 .queryParam("leverage","20000")
                 .queryParam("user_currency","AUD")
@@ -249,9 +151,9 @@ public class TestAccountTypeMini {
     public void leverageLessThanBorder(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.1")
                 .queryParam("leverage","1")
                 .queryParam("user_currency","AUD")
@@ -268,9 +170,9 @@ public class TestAccountTypeMini {
     public void leverageIncorrectValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.1")
                 .queryParam("leverage","-200")
                 .queryParam("user_currency","AUD")
@@ -289,7 +191,7 @@ public class TestAccountTypeMini {
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.1")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","AUD")
@@ -306,9 +208,9 @@ public class TestAccountTypeMini {
     public void queryWithoutInstrumentValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.1")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","AUD")
@@ -325,7 +227,7 @@ public class TestAccountTypeMini {
     public void queryWithoutSymbolValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
                 .queryParam("symbol","")
                 .queryParam("lot","0.1")
@@ -344,9 +246,9 @@ public class TestAccountTypeMini {
     public void queryWithoutLotValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","AUD")
@@ -363,9 +265,9 @@ public class TestAccountTypeMini {
     public void queryWithoutLeverageValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.1")
                 .queryParam("leverage","")
                 .queryParam("user_currency","AUD")
@@ -382,9 +284,9 @@ public class TestAccountTypeMini {
     public void queryWithoutUserCurrencyValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.1")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","")
@@ -403,9 +305,9 @@ public class TestAccountTypeMini {
     public void userCurrencyOnISOValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","3")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","978")
@@ -422,9 +324,9 @@ public class TestAccountTypeMini {
     public void userCurrencyOnLowerCaseValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","3")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","eur")
@@ -442,9 +344,9 @@ public class TestAccountTypeMini {
     public void userCurrencyFullNameValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","3")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","EURO")
@@ -463,9 +365,9 @@ public class TestAccountTypeMini {
     public void lotLessThanBorder(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","0.0001")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","AUD")
@@ -483,9 +385,9 @@ public class TestAccountTypeMini {
     public void lotIncorrectValue(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
-                .queryParam("symbol","AUDCADm")
+                .queryParam("symbol","AUDCADe")
                 .queryParam("lot","-1")
                 .queryParam("leverage","200")
                 .queryParam("user_currency","AUD")
@@ -503,7 +405,7 @@ public class TestAccountTypeMini {
     public void symbolDoesNotMatchFormType(){
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
-                .queryParam("form_type","mini")
+                .queryParam("form_type","ECN")
                 .queryParam("instrument","Forex")
                 .queryParam("symbol","AUDCADc")
                 .queryParam("lot","3")

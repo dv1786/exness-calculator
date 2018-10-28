@@ -5,7 +5,7 @@ import java.util.Properties;
 public class CalculatorProperties {
 
 
-    public static final String PATH_TO_PROPERTIES = "src/test/resources/test";
+    public static final String PATH_TO_PROPERTIES = "src/test/resources/test/";
 
     static private Properties testProperty = new Properties();
 
