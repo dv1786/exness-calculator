@@ -3,13 +3,12 @@ package com.exness;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.specification.ResponseSpecification;
 import org.hamcrest.Matchers;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasKey;
 
 
 public class TestAccountTypeMini {
@@ -171,8 +170,9 @@ public class TestAccountTypeMini {
                 .body("$", hasKey("profit"))
                 .body("$", hasKey("conversion_pairs"))
                 .body("user_currency", equalTo("USD"))
-           //     .body("conversion_pairs", hasValue("{EURUSD=1.1403, XAUUSD=1233.635}"))
-                .body("conversion_pairs[0].XAUUSD", equalTo("1233.635"))
+                .body("conversion_pairs.XAUUSD", Matchers.is(Float.class))
+                .body("conversion_pairs.EURUSD", Matchers.is(Float.class))
+                //.body("conversion_pairs.XAUUSD", Matchers.equalTo(1233.635f))
                 .body("profit_formula2", equalTo("0.01000 x 100.0 x 0.10 = 0.10 EUR"))
                 .body("form_type", equalTo("mini"))
                 .extract().response()
@@ -182,8 +182,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void lotEnotationValue(){
-        //{"form_type":["Поле обязательно для заполнения."],"lot":["Поле обязательно для заполнения."],"leverage":["Поле обязательно для заполнения."],
-        // "instrument":["Поле обязательно для заполнения."],"symbol":["Поле обязательно для заполнения."],"user_currency":["Поле обязательно для заполнения."]}
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -195,6 +193,11 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
+                .body("commission", equalTo(null))
+                .body("$", hasKey("margin"))
+                .body("$", hasKey("profit"))
+                .body("user_currency", equalTo("AUD"))
+                .body("profit_formula2", equalTo("0.00010 x 100000.0 x 10000000.00 = 100000000.00 CAD"))
                 .body("form_type", equalTo("mini"))
                 .extract().response()
                 .prettyPrint();
@@ -202,8 +205,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void lotLargerThanBorder(){
-        //{"form_type":["Поле обязательно для заполнения."],"lot":["Поле обязательно для заполнения."],"leverage":["Поле обязательно для заполнения."],
-        // "instrument":["Поле обязательно для заполнения."],"symbol":["Поле обязательно для заполнения."],"user_currency":["Поле обязательно для заполнения."]}
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -215,6 +216,11 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
+                .body("commission", equalTo(null))
+                .body("$", hasKey("margin"))
+                .body("$", hasKey("profit"))
+                .body("user_currency", equalTo("AUD"))
+                .body("profit_formula2", equalTo("0.00010 x 100000.0 x 3000000.00 = 30000000.00 CAD"))
                 .body("form_type", equalTo("mini"))
                 .extract().response()
                 .prettyPrint();
@@ -236,12 +242,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("commission", equalTo(null))
-                .body("$", hasKey("margin"))
-                .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("AUD"))
-                .body("volume_formula2", equalTo("0.10 x 100000 = 10000.00 AUD"))
-                .body("form_type", equalTo("mini"))
+                .body("leverage[0]", equalTo("\"20000\" не является корректным значением."))
                 .extract().response()
                 .prettyPrint();
 
@@ -260,12 +261,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("commission", equalTo(null))
-                .body("$", hasKey("margin"))
-                .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("AUD"))
-                .body("volume_formula2", equalTo("0.10 x 100000 = 10000.00 AUD"))
-                .body("form_type", equalTo("mini"))
+                .body("leverage[0]", equalTo("\"1\" не является корректным значением."))
                 .extract().response()
                 .prettyPrint();
 
@@ -284,12 +280,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("commission", equalTo(null))
-                .body("$", hasKey("margin"))
-                .body("$", hasKey("profit"))
-                .body("user_currency", equalTo("AUD"))
-                .body("volume_formula2", equalTo("0.10 x 100000 = 10000.00 AUD"))
-                .body("form_type", equalTo("mini"))
+                .body("leverage[0]", equalTo("\"-200\" не является корректным значением."))
                 .extract().response()
                 .prettyPrint();
 
@@ -297,8 +288,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void queryWithoutFormTypeValue(){
-        //{"form_type":["Поле обязательно для заполнения."],"lot":["Поле обязательно для заполнения."],"leverage":["Поле обязательно для заполнения."],
-        // "instrument":["Поле обязательно для заполнения."],"symbol":["Поле обязательно для заполнения."],"user_currency":["Поле обязательно для заполнения."]}
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","")
@@ -310,7 +299,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("form_type[0]", equalTo("Поле обязательно для заполнения."))
                 .extract().response()
                 .prettyPrint();
 
@@ -318,8 +307,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void queryWithoutInstrumentValue(){
-        //{"form_type":["Поле обязательно для заполнения."],"lot":["Поле обязательно для заполнения."],"leverage":["Поле обязательно для заполнения."],
-        // "instrument":["Поле обязательно для заполнения."],"symbol":["Поле обязательно для заполнения."],"user_currency":["Поле обязательно для заполнения."]}
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -331,7 +318,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("instrument[0]", equalTo("Поле обязательно для заполнения."))
                 .extract().response()
                 .prettyPrint();
 
@@ -339,8 +326,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void queryWithoutSymbolValue(){
-        //{"form_type":["Поле обязательно для заполнения."],"lot":["Поле обязательно для заполнения."],"leverage":["Поле обязательно для заполнения."],
-        // "instrument":["Поле обязательно для заполнения."],"symbol":["Поле обязательно для заполнения."],"user_currency":["Поле обязательно для заполнения."]}
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -352,7 +337,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("symbol[0]", equalTo("Поле обязательно для заполнения."))
                 .extract().response()
                 .prettyPrint();
 
@@ -360,8 +345,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void queryWithoutLotValue(){
-        //{"form_type":["Поле обязательно для заполнения."],"lot":["Поле обязательно для заполнения."],"leverage":["Поле обязательно для заполнения."],
-        // "instrument":["Поле обязательно для заполнения."],"symbol":["Поле обязательно для заполнения."],"user_currency":["Поле обязательно для заполнения."]}
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -373,7 +356,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("lot[0]", equalTo("Поле обязательно для заполнения."))
                 .extract().response()
                 .prettyPrint();
 
@@ -381,8 +364,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void queryWithoutLeverageValue(){
-        //{"form_type":["Поле обязательно для заполнения."],"lot":["Поле обязательно для заполнения."],"leverage":["Поле обязательно для заполнения."],
-        // "instrument":["Поле обязательно для заполнения."],"symbol":["Поле обязательно для заполнения."],"user_currency":["Поле обязательно для заполнения."]}
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -394,7 +375,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("leverage[0]", equalTo("Поле обязательно для заполнения."))
                 .extract().response()
                 .prettyPrint();
 
@@ -415,7 +396,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("user_currency[0]", equalTo("Поле обязательно для заполнения."))
                 .extract().response()
                 .prettyPrint();
 
@@ -436,7 +417,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("user_currency[0]", equalTo( "\"978\" не является корректным значением."))
                 .extract().response()
                 .prettyPrint();
 
@@ -455,7 +436,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("user_currency[0]", equalTo( "\"eur\" не является корректным значением."))
                 .extract().response()
                 .prettyPrint();
 
@@ -475,7 +456,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("user_currency[0]", equalTo( "\"EURO\" не является корректным значением."))
                 .extract().response()
                 .prettyPrint();
 
@@ -485,9 +466,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void lotLessThanBorder(){
-//        "lot": [
-//        "Убедитесь что значение больше или равно 0.01."
-//    ]
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -499,7 +477,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("lot[0]", equalTo("Убедитесь что значение больше или равно 0.01."))
                 .extract().response()
                 .prettyPrint();
 
@@ -508,9 +486,6 @@ public class TestAccountTypeMini {
 
     @Test
     public void lotIncorrectValue(){
-//        "lot": [
-//        "Убедитесь что значение больше или равно 0.01."
-//    ]
         RestAssured.given()
                 .header("cookie",RandomCookieGenerate.cookie)
                 .queryParam("form_type","mini")
@@ -522,7 +497,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("lot[0]", equalTo("Убедитесь что значение больше или равно 0.01."))
                 .extract().response()
                 .prettyPrint();
     }
@@ -542,7 +517,7 @@ public class TestAccountTypeMini {
                 .when().get()
                 .then()
                 .statusCode(200)
-                .body("form_type", equalTo("mini"))
+                .body("symbol[0]", equalTo("\"AUDCADc\" не является корректным значением."))
                 .extract().response()
                 .prettyPrint();
 
